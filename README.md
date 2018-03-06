@@ -43,6 +43,8 @@ LED driver ICs.
 
 ## Block Diagram
 
+![alt text](https://github.com/Fyfe93/GroPro/blob/master/GroProBlockDiagram.png)
+
 ## References
 
 [1] Solar Spectral Irradiance, Air Mass 1.5, NREL, 2013
