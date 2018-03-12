@@ -17,21 +17,20 @@ artificial light therefore continuing to stimulate photosynthesis and thus optim
 
 ## Sensors
 Ambient light sensors will be used to continually monitor the levels of sunlight available to the plant in question. 
-Texas Instruments OPT3001 IC will be used as the ambient light sensor, data of which can be accessed through I2C. 
-This data will then be processed by the Pi to achieve the desired results.
+Texas Instruments OPT3001 IC will be used as the ambient light sensor, data of which can be accessed through the I2C bus protocol. This data will then be processed by the Pi to achieve the desired results. The sensor can process different levels of ambient light every 100ms, which is in excess of our required processing requirements, but good to have for demonstration purposes. The sampling rate for this project therefore will be 10Hz.  
 
 ## Processing
 The OPT3001 will continuously be polling data into the RPi3 to adjust the intensity of the LED array dependent on the level 
 of lux the sensor is obtaining from the ambient sunlight. This will operate in PID loop fashion, where the output intensity 
 of the LED array will be increased to account for the dip in light intensity experienced by the OPT3001 during sunset, and 
 vice versa for sunrise. Multithreading will also be incorporated to allow the RPi3 to "listen" for user interaction with the 
-android app, using this information to adjust the ratio of the arrays RGB diodes to the users preference.
+android app, using this information to adjust the ratio of the arrays RGB diodes to the users preference. The SPI protocol will be used to interface with the MAX72** chip which allows control of multiple LED's at a time. There will be four SPI channels implemented along with one I2C channel for communication with the OPT3001 ambient light sensor. The raspberry pi uses the Linux Kernel which will be using to compile and run the source code. To reduce noise enduced by the ambient light sensor, post processing will be utilised in the form of a 16 sample median filter. This will smooth out the sensors output and surpress any potential measured fluctuations. 
 
 ## Android Application
 To provide user control over specific parameters and settings that are of the user's preference it is necessary to include 
 an external application that configures the system appropriately. The application communicates with the Raspberry Pi over a 
 local network, manually overriding the system when the user creates parameter changes. Currently the parameters that can be 
-set by the user are; Visible LED brightness, UV LED brightness, IR LED brightness and period of sleep.
+set by the user are; Visible LED brightness, UV LED brightness, IR LED brightness and period of sleep. The application is required to respond in realtime to the users interactions, with the PI implementing these instructions at a similar rate.   
 
 ## LEDs and Hardware Design
 The output LED array will consist of a mix of UV, RGB and IR LEDs. These have been selected so that as much of the sunlight 
