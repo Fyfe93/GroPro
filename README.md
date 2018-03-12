@@ -53,7 +53,7 @@ The hardware design is split into four seperate boards, each containing 25 LEDs 
 
 ## Block Diagram
 
-![alt text](https://github.com/Fyfe93/GroPro/blob/master/GroProBlockDiagram.png)
+![alt text](https://github.com/Fyfe93/GroPro/blob/master/GroProBlockDiagram_update.png)
 
 ## References
 
