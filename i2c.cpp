@@ -15,12 +15,20 @@
 
 float lux(int fd){
 	int readres = wiringPiI2CReadReg16(fd, RES_REG);
+//	printf ("readres %i\n", readres);
 	int exponential = readres&0b1111000000000000;
 	exponential = exponential >> 12;
+//	printf ("exponential %i\n", exponential);
 	float LSB_Size=pow(2, exponential)*0.01;
+//	printf ("LSB Size %f\n", LSB_Size);
 	int R = readres&0b0000111111111111;
 	return R*LSB_Size;
 }
+
+//float maxlux(){
+//	int expo = 1011;
+//	return pow(2, 11)*0.01*4095;
+//}
 
 int main(int argc, const char * argv[]){
 	int data = 0b1100110011101010;
@@ -31,6 +39,10 @@ int main(int argc, const char * argv[]){
 //		std::cout <<  write << std::endl;
 		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 		float lux_ = lux(fd);
-		printf ("lux %f\n", lux_);			
+		printf ("lux %f\n", lux_);
+//		binconversion();
+//		printf ("bin conversion %i\n", bin_);
+//		float maxlux_ = maxlux();
+//		printf ("max lux %f\n", maxlux_);
 	}
 }
