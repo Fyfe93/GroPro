@@ -1,4 +1,4 @@
-![alt text](https://github.com/Fyfe93/GroPro/blob/master/Gro_Pro_Logo.png)
+![alt text](https://github.com/Fyfe93/GroPro/blob/master/GroProLogo.png)
 
 # GroPro
 Adaptive Artificial Sunlight Radiator to Provide Optimum Photosynthetic Results in Plant Growing Applications
