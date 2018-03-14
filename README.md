@@ -28,7 +28,7 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 ## Sensors
 Ambient light sensors are used to continually monitor the levels of sunlight available to the plant in question. 
-Texas Instruments OPT3001 IC is used as the ambient light sensor, data of which can be accessed through the I2C bus protocol. This data is then processed by the Pi to achieve the desired results. The sensor can process different levels of ambient light every 100ms, which is in excess of our required processing requirements, although is useful for demonstration purposes. The sampling rate for the sensors, therefore, is 10Hz.  
+Texas Instruments [OPT3001](http://www.ti.com/lit/ds/symlink/opt3001.pdf) IC is used as the ambient light sensor, data of which can be accessed through the I2C bus protocol. This data is then processed by the Pi to achieve the desired results. The sensor can process different levels of ambient light every 100ms, which is in excess of our required processing requirements, although is useful for demonstration purposes. The sampling rate for the sensors, therefore, is 10Hz.  
 
 ## Processing
 The OPT3001 continuously polls data into the RPi3 to adjust the intensity of the LED array, dependent on the level 
