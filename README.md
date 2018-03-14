@@ -21,9 +21,7 @@ Olly Warner is responsible for circuit design, all hardware implementation and f
 
 Regular updates and promotions can be found on our social media pages. [![alt text](https://github.com/Fyfe93/GroPro/blob/master/Icons/instagram_icon.png)](https://www.instagram.com/groproglasgow/) [<img src="https://github.com/Fyfe93/GroPro/blob/master/Icons/twitter_icon.png" width="40">](https://twitter.com/GroProGlasgow) [<img src="https://github.com/Fyfe93/GroPro/blob/master/Icons/YouTube.png" width="40">](https://www.youtube.com/channel/UC6INIFKsnIOoyIMZFyKa2zQ) 
 
-You can also follow the project's progress, interact with the developers and put forward your ideas for improvements through the above links.
-
-Here is a short clip of us demonstrating one of our early RGB demoboards. 
+You can also follow the project's progress, interact with the developers and put forward your ideas for improvements through the above links. Here is a short clip of us demonstrating one of our early RGB demoboards. 
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=cS9zusx6LBs
 " target="_blank"><img src="http://img.youtube.com/vi/cS9zusx6LBs/0.jpg" 
