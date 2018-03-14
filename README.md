@@ -1,4 +1,4 @@
-![alt text](https://github.com/Fyfe93/GroPro/blob/master/GroProLogo.png)
+![alt text](https://github.com/Fyfe93/GroPro/blob/master/GroProLogo.png) [![alt text](https://github.com/Fyfe93/GroPro/blob/master/Icons/instagram_icon.png)](https://www.instagram.com/groproglasgow/) [<img src="https://github.com/Fyfe93/GroPro/blob/master/Icons/twitter_icon.png" width="40">](https://twitter.com/GroProGlasgow) [<img src="https://github.com/Fyfe93/GroPro/blob/master/Icons/YouTube.png" width="40">](https://www.youtube.com/channel/UC6INIFKsnIOoyIMZFyKa2zQ)
 
 # GroPro
 Adaptive Artificial Sunlight Radiator to Provide Optimum Photosynthetic Results in Plant Growing Applications
@@ -19,7 +19,7 @@ artificial light, therefore continuing to stimulate photosynthesis and thus opti
 
 Olly Warner is responsible for circuit design, all hardware implementation and fabrication. Alasdair Robertson is responsible for the core RPi3 code as well as sensor data aquisition, system evaluation and output to four MAX7219 LED Drivers for RGB LEDs and PWM output for UV & IR LEDs. Andrew Fyfe is responsible for the Android application design, implementation and its integration with the overall system. The time for hardware and software development is divided equally across the team, allowing each component to be completed for the set deadlines. This means that more time is availiable for debugging and construction of the final product.
 
-Regular updates and promotions can be found on our social media pages. [![alt text](https://github.com/Fyfe93/GroPro/blob/master/Icons/instagram_icon.png)](https://www.instagram.com/groproglasgow/) [<img src="https://github.com/Fyfe93/GroPro/blob/master/Icons/twitter_icon.png" width="40">](https://twitter.com/GroProGlasgow) [<img src="https://github.com/Fyfe93/GroPro/blob/master/Icons/YouTube.png" width="40">](https://www.youtube.com/channel/UC6INIFKsnIOoyIMZFyKa2zQ) 
+Regular updates and promotions can be found on our social media pages. 
 
 You can also follow the project's progress, interact with the developers and put forward your ideas for improvements through the above links. Here is a short clip of us demonstrating one of our early RGB demoboards. 
 
