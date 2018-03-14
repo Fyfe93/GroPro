@@ -21,6 +21,8 @@ Olly Warner is responsible for circuit design, all hardware implementation and f
 
 Regular updates and promotions can be found on our [Instagram](https://www.instagram.com/groproglasgow/), [Twitter](https://twitter.com/GroProGlasgow) and [YouTube](https://www.youtube.com/channel/UC6INIFKsnIOoyIMZFyKa2zQ). You can also follow the project's progress, interact with the developers and put forward your ideas for improvements through the above links.
 
+Here is a short clip of us demonstrating one of our RGB demoboards. [![IMAGE ALT TEXT HERE](https://www.youtube.com/watch?v=cS9zusx6LBs)](https://www.youtube.com/watch?v=cS9zusx6LBs)
+
 
 ## Sensors
 Ambient light sensors are used to continually monitor the levels of sunlight available to the plant in question. 
