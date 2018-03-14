@@ -53,7 +53,7 @@ The Android app is developed using the QT framework in order to allow cross comp
 The output LED array consists of a mix of UV, RGB and IR LEDs. This is in order to account for as much of the wavespecturm emmited from the sun as possible, where the peak wavelengths within these coincide with those considered "ideal" for plant 
 growth. The array is constructed with 76% RGB, 16% IR and 8% UV as this compares well with the relative spectral 
 wavelength ratios of natural daylight as calculated from [1,2]. 
-The RGB LEDs are driven through the SPI interface of the MAX7219 LED driver IC. This driver allows intensity control through registers and also allows for an efficient PCB layout and easy programming. The UV and IR LEDs are driven through PWM control of a NPN BJT. 
+The RGB LEDs are driven through the SPI interface of the [MAX7219](https://datasheets.maximintegrated.com/en/ds/MAX7219-MAX7221.pdf) LED driver IC. This driver allows intensity control through registers and also allows for an efficient PCB layout and easy programming. The UV and IR LEDs are driven through PWM control of a NPN BJT. 
 The hardware design is split into four seperate boards, each containing 25 LEDs with their respective drivers. The KiCad files for the schematic, PCB layout and library cache can be found in this GitHub repository.
 
 ## Block Diagram
