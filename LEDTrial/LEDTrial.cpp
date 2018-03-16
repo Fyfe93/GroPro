@@ -1,12 +1,7 @@
 /*
-
  max7219.c
-
  Raspberry Pi driving the Max7219
-
  to compile : gcc max7219.c -o max7219 -lwiringPi
-
-
 */
 
 #include <wiringPi.h>
@@ -95,7 +90,7 @@ int main (void)
 
   MAX7219Send(INTENSITY, 15);     // set brightness 0 to 15
 
-  MAX7219Send(SHUTDOWN, 0);      // come out of shutdown mode	/ turn on the digits
+  MAX7219Send(SHUTDOWN, 1);      // come out of shutdown mode	/ turn on the digits
 
   MAX7219Send(1,6); 		 // displays the number 6 on digit 1
 
