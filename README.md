@@ -1,5 +1,7 @@
+![alt text](https://github.com/Fyfe93/GroPro/blob/master/GroProLogo.png)                                     [![alt text](https://github.com/Fyfe93/GroPro/blob/master/Icons/instagram_icon.png)](https://www.instagram.com/groproglasgow/) [<img src="https://github.com/Fyfe93/GroPro/blob/master/Icons/twitter_icon.png" width="40">](https://twitter.com/GroProGlasgow) [<img src="https://github.com/Fyfe93/GroPro/blob/master/Icons/YouTube.png" width="40">](https://www.youtube.com/channel/UC6INIFKsnIOoyIMZFyKa2zQ)
+
 # GroPro
-Adaptive Artificial Sunlight Radiator to Provide Optimum Photosynthetic Results in Plant Growing Applications
+Adaptive Artificial Sunlight Radiator to Provide Optimum Photosynthetic Results in Plant Growing Applications.
 
 ## Overview
 
@@ -17,12 +19,16 @@ artificial light, therefore continuing to stimulate photosynthesis and thus opti
 
 Olly Warner is responsible for circuit design, all hardware implementation and fabrication. Alasdair Robertson is responsible for the core RPi3 code as well as sensor data aquisition, system evaluation and output to four MAX7219 LED Drivers for RGB LEDs and PWM output for UV & IR LEDs. Andrew Fyfe is responsible for the Android application design, implementation and its integration with the overall system. The time for hardware and software development is divided equally across the team, allowing each component to be completed for the set deadlines. This means that more time is availiable for debugging and construction of the final product.
 
-Regular updates and promotions can be found at https://www.instagram.com/groproglasgow/, https://twitter.com/GroProGlasgow and https://www.youtube.com/channel/UC6INIFKsnIOoyIMZFyKa2zQ. You can also follow the project's progress, interact with the developers and put forward your ideas for improvements through the above links.
+You can also follow the project's progress, interact with the developers and put forward your ideas for improvements through our social media pages linked above. Here is a short clip of us demonstrating one of our early RGB demoboards. 
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=cS9zusx6LBs
+" target="_blank"><img src="http://img.youtube.com/vi/cS9zusx6LBs/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 
 ## Sensors
 Ambient light sensors are used to continually monitor the levels of sunlight available to the plant in question. 
-Texas Instruments OPT3001 IC is used as the ambient light sensor, data of which can be accessed through the I2C bus protocol. This data is then processed by the Pi to achieve the desired results. The sensor can process different levels of ambient light every 100ms, which is in excess of our required processing requirements, although is useful for demonstration purposes. The sampling rate for the sensors, therefore, is 10Hz.  
+Texas Instruments [OPT3001](http://www.ti.com/lit/ds/symlink/opt3001.pdf) IC is used as the ambient light sensor, data of which can be accessed through the I2C bus protocol. This data is then processed by the Pi to achieve the desired results. The sensor can process different levels of ambient light every 100ms, which is in excess of our required processing requirements, although is useful for demonstration purposes. The sampling rate for the sensors, therefore, is 10Hz.  
 
 ## Processing
 The OPT3001 continuously polls data into the RPi3 to adjust the intensity of the LED array, dependent on the level 
@@ -47,7 +53,7 @@ The Android app is developed using the QT framework in order to allow cross comp
 The output LED array consists of a mix of UV, RGB and IR LEDs. This is in order to account for as much of the wavespecturm emmited from the sun as possible, where the peak wavelengths within these coincide with those considered "ideal" for plant 
 growth. The array is constructed with 76% RGB, 16% IR and 8% UV as this compares well with the relative spectral 
 wavelength ratios of natural daylight as calculated from [1,2]. 
-The RGB LEDs are driven through the SPI interface of the MAX7219 LED driver IC. This driver allows intensity control through registers and also allows for an efficient PCB layout and easy programming. The UV and IR LEDs are driven through PWM control of a NPN BJT. 
+The RGB LEDs are driven through the SPI interface of the [MAX7219](https://datasheets.maximintegrated.com/en/ds/MAX7219-MAX7221.pdf) LED driver IC. This driver allows intensity control through registers and also allows for an efficient PCB layout and easy programming. The UV and IR LEDs are driven through PWM control of a NPN BJT. 
 The hardware design is split into four seperate boards, each containing 25 LEDs with their respective drivers. The KiCad files for the schematic, PCB layout and library cache can be found in this GitHub repository.
 
 ## Block Diagram
