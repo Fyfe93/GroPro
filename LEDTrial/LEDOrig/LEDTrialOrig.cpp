@@ -40,8 +40,13 @@ int main(){
 	// Set Intensity and write to PI
 	unsigned char buffer [2];
 	buffer [0] = INTENSITY;
-	buffer [1] = 0x01;
+	buffer [1] = 0x0F;
 	wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
+
+	// Set Scan-Limit Register to turn off and on all Digits
+//	buffer [0] = SCAN_LIMIT;
+//	buffer [1] = 0x07;
+//	wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
 
 	while (true){
 
@@ -50,28 +55,39 @@ int main(){
 		buffer [1] = 0x00;
 		wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
 
-//		sleep (5000);
 		std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
-		// Initialise Shutdown Mode and write to Pi
-//		buffer [0] = SHUTDOWN;
+		// Set Data Register to 1 and write to Display register
+		buffer [0] = DISPLAY_TEST;
 		buffer [1] = 0x01;
 		wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
 
 		std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
+		// Set Data Register to 0 and write to Display register to initialise normal operation mode
+		buffer [0] = DISPLAY_TEST;
 		buffer [1] = 0x00;
 		wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
 
-//		sleep (5000);
 		std::this_thread::sleep_for(std::chrono::milliseconds(500));
-//
+
+		// Turning on each segment in the display
+		buffer [0] = DECODE_MODE;
+		buffer [1] = 0x00;
+		wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
+
+		// Set Scan-Limit Register to turn off and on all Digits
+        	buffer [0] = SCAN_LIMIT;
+        	buffer [1] = 0x07;
+        	wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
+
 		for (char addr=0;addr<8;addr++){
 			buffer [0] = addr;
-			buffer [1] = addr;
-			printf("%i \n", addr);
-			wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
-			std::this_thread::sleep_for(std::chrono::milliseconds(500));
+			for (char addr=0;addr<8;addr++){
+				buffer [1] = addr;
+				wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
+				std::this_thread::sleep_for(std::chrono::milliseconds(50));
+			}
 		}
 	}
 }
