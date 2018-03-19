@@ -14,25 +14,28 @@
 //life
 
 float lux(int fd){
-	int readres = wiringPiI2CReadReg16(fd, RES_REG);
-//	printf ("readres %i\n", readres);
+	int readres = wiringPiI2CReadReg16(fd, RES_REG);	
+	int left = readres&0xFF;
+	left = left << 8;
+	int right = readres&0xFF00;
+	right = right >> 8;
+	readres = (left|right);
+
 	int exponential = readres&0b1111000000000000;
 	exponential = exponential >> 12;
-//	printf ("exponential %i\n", exponential);
 	float LSB_Size=pow(2, exponential)*0.01;
-//	printf ("LSB Size %f\n", LSB_Size);
 	int R = readres&0b0000111111111111;
 	return R*LSB_Size;
 }
 
-//float maxlux(){
-//	int expo = 1011;
-//	return pow(2, 11)*0.01*4095;
-//}
-
 int main(int argc, const char * argv[]){
-	int data = 0b1100110011101010;
-	int fd = wiringPiI2CSetup(0x44);
+
+	// New Config	
+	int data = 0x10CC;
+
+	// Old Congif
+//	int data = 0b1100110011101010;
+	int fd = wiringPiI2CSetup(0x45);
 
 	while  (true) {
 		int write = wiringPiI2CWriteReg16(fd, CONF_REG, data);
