@@ -36,15 +36,16 @@ int main(int argc, const char * argv[]){
 
 	// Write Congif
 	int fd = wiringPiI2CSetup(0x45);
-	PID pid = PID(0.1, 83000, 0.01, 0.1, 0.01, 0.5);
+	PID pid = PID(0.1, 83000, 0.01, 1.4e-3, 0.0, 2.5e-3);
 
 	while  (true) {
 		int write = wiringPiI2CWriteReg16(fd, CONF_REG, data);
-		std::this_thread::sleep_for(std::chrono::milliseconds(150));
+		std::this_thread::sleep_for(std::chrono::milliseconds(500));
 		float lux_ = lux(fd);
 		printf ("lux %f\n\n", lux_);
-		double inc = pid.calculate(0, val);
-		printf("val:%7.3f inc:% 7.3f\n\n", val, inc);
-		val += inc;
+		double inc = pid.calculate(8000, lux_);
+		double sum = lux_ + inc;
+		printf("lux:%7.3f inc:% 7.3f sum:%7.3f\n\n",lux_, inc, sum);
+		lux_ += inc;
 	}
 }

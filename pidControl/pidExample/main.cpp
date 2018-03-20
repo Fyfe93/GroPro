@@ -9,6 +9,8 @@
 #include "pid.h"
 #include <stdio.h>
 #include <iostream>
+#include <chrono>
+#include <thread>
 
 int main(int argc, const char * argv[])
 {
@@ -20,6 +22,7 @@ int main(int argc, const char * argv[])
         double inc = pid.calculate(0, val);
         printf("val:% 7.3f inc:% 7.3f\n", val, inc);
         val += inc;
+	std::this_thread::sleep_for(std::chrono::milliseconds(250));
     }
     
     return 0;
