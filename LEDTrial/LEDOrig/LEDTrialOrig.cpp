@@ -1,4 +1,4 @@
-// Original LED Trial //
+#// Original LED Trial //
 
 // MAX7221  LED Driver //
 
@@ -37,39 +37,41 @@ int main(){
 	fd = wiringPiSPISetup (SPI_CHANNEL, CLOCK_SPEED);
 	printf ("Init result %i \n", fd);
 
-	// Set Intensity and write to PI
+	// Initialise Buffer
 	unsigned char buffer [2];
-	buffer [0] = INTENSITY;
-	buffer [1] = 0x0F;
-	wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
 
 	// Set Scan-Limit Register to turn off and on all Digits
 //	buffer [0] = SCAN_LIMIT;
 //	buffer [1] = 0x07;
 //	wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
 
-	while (true){
+//	while (true){
 
 		// Initialise Test Display and write to PI
 		buffer [0] = DISPLAY_TEST;
 		buffer [1] = 0x00;
 		wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
 
-		std::this_thread::sleep_for(std::chrono::milliseconds(500));
+		std::this_thread::sleep_for(std::chrono::milliseconds(50));
 
 		// Set Data Register to 1 and write to Display register
 		buffer [0] = DISPLAY_TEST;
 		buffer [1] = 0x01;
 		wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
 
-		std::this_thread::sleep_for(std::chrono::milliseconds(500));
+		std::this_thread::sleep_for(std::chrono::milliseconds(50));
 
 		// Set Data Register to 0 and write to Display register to initialise normal operation mode
 		buffer [0] = DISPLAY_TEST;
 		buffer [1] = 0x00;
 		wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
 
-		std::this_thread::sleep_for(std::chrono::milliseconds(500));
+		std::this_thread::sleep_for(std::chrono::milliseconds(50));
+
+		// Power up MAX7221
+		buffer [0] = SHUTDOWN;
+		buffer [1] = 0x01;
+		wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
 
 		// Turning on each segment in the display
 		buffer [0] = DECODE_MODE;
@@ -81,15 +83,35 @@ int main(){
         	buffer [1] = 0x07;
         	wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
 
-		for (char addr=0;addr<8;addr++){
-			buffer [0] = addr;
-			for (char addr=0;addr<8;addr++){
-				buffer [1] = addr;
-				wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
-				std::this_thread::sleep_for(std::chrono::milliseconds(50));
-			}
+		//Set Intensity and write to PI
+		buffer [0] = INTENSITY; 
+		buffer [1] = 0x00;
+		wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
+
+
+		for(uint8_t i=0; i<9; i++){
+			buffer[0] = i;
+			buffer[1] = 0x00;
+			wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
 		}
-	}
+
+
+
+		//Setting All on Hopefully
+		for (int j=1; j<7; j++)
+		{
+	       		 for (int i=0; i<9; i++)
+			{
+		          	buffer [0] = j;
+		        	buffer [1] = 0b00000001 << i;
+		        	wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
+
+				printf ("Address Register %i\n\n", i);
+				//sleep(1);
+				std::this_thread::sleep_for(std::chrono::milliseconds(250));
+
+		 	 }
+		}
+
+//}
 }
-
-
