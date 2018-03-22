@@ -3,6 +3,12 @@
 # GroPro
 Adaptive Artificial Sunlight Radiator to Provide Optimum Photosynthetic Results in Plant Growing Applications.
 
+## Team Members
+
+[*Olly Warner*](https://github.com/obwarner1)
+[*Alasdair Robertson*](https://github.com/TheAliRobertson)
+[*Andrew Fyfe*](https://github.com/Fyfe93)
+
 ## Overview
 
 The aim of this project is to design an adaptive lighting system for optimising plant growth. 
