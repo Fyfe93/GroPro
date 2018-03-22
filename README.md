@@ -3,12 +3,20 @@
 # GroPro
 Adaptive Artificial Sunlight Radiator to Provide Optimum Photosynthetic Results in Plant Growing Applications.
 
+## Team Members
+
+[*Olly Warner*](https://github.com/obwarner1)
+
+[*Alasdair Robertson*](https://github.com/TheAliRobertson)
+
+[*Andrew Fyfe*](https://github.com/Fyfe93)
+
 ## Overview
 
 The aim of this project is to design an adaptive lighting system for optimising plant growth. 
 It provides improved usability over standard lighting systems that are currently available as the user can control and 
 monitor the device from an Android phone application or not interact with device at all during operation due to its 
-real-time auto-adjustment protocol. The project is completed in association with the University of Glasgow and is an exercise to gain 
+real-time auto-adjustment protocol. The project is completed in association with the [University of Glasgow](https://www.gla.ac.uk/) and is an exercise to gain 
 experience with real-time embedded programming.
 
 This project consists of an ambient light sensor that polls brightness values from the environment and then sends this data 
@@ -17,12 +25,12 @@ various LEDs. The system correlates the changes in natural light to a relative o
 intensity appropriately. The goal is to compensate for the reduction in natural sunlight by increasing the intensity of 
 artificial light, therefore continuing to stimulate photosynthesis and thus optimising plant growth.
 
-Olly Warner is responsible for circuit design, all hardware implementation and fabrication. Alasdair Robertson is responsible for the core RPi3 code as well as sensor data aquisition, system evaluation and output to four MAX7219 LED Drivers for RGB LEDs and PWM output for UV & IR LEDs. Andrew Fyfe is responsible for the Android application design, implementation and its integration with the overall system. The time for hardware and software development is divided equally across the team, allowing each component to be completed for the set deadlines. This means that more time is availiable for debugging and construction of the final product.
+[*Olly Warner*](https://github.com/obwarner1) is responsible for circuit design, all hardware implementation and fabrication. [*Alasdair Robertson*](https://github.com/TheAliRobertson) is responsible for the core RPi3 code as well as sensor data aquisition, system evaluation and output to four MAX7219 LED Drivers for RGB LEDs and PWM output for UV & IR LEDs. [*Andrew Fyfe*](https://github.com/Fyfe93) is responsible for the Android application design, implementation and its integration with the overall system. The time for hardware and software development is divided equally across the team, allowing each component to be completed for the set deadlines. This means that more time is availiable for debugging and construction of the final product.
 
-You can also follow the project's progress, interact with the developers and put forward your ideas for improvements through our social media pages linked above. Here is a short clip of us demonstrating one of our early RGB demoboards. 
+You can also follow the project's progress, interact with the developers and put forward your ideas for improvements through our social media pages linked above. Here is a short clip of us demonstrating our Texas Instruments OPT3001 ambient light sensor. 
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=cS9zusx6LBs
-" target="_blank"><img src="http://img.youtube.com/vi/cS9zusx6LBs/0.jpg" 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=JxFteMsjT0Y
+" target="_blank"><img src="http://img.youtube.com/vi/JxFteMsjT0Y/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 
@@ -37,7 +45,7 @@ of the LED array will be increased to account for the decrease in light intensit
 vice versa for sunrise. Multithreading is also incorporated to allow the RPi3 to "listen" for user interaction with the 
 Android app, using this information to adjust the intensity levels of the LED matrix to the user's preference. Therefore, there are two threads implemented in the source code. Classes are used to seperate light sensor data polling and Android application interfacing. External dependencies required for this project include the wiringPi library, in order to access the GPIO pins of the Pi using high level commands, as well as the QT library for the necessary networking protocols. 
 
-The SPI protocol will be used to interface with the MAX7219 LED driver IC. There are four SPI channels implemented along with one I2C channel for communication with the OPT3001 ambient light sensor. The raspberry pi uses the Linux Kernel which is used to compile and run the source code. To reduce noise enduced by the ambient light sensor, post processing is utilised in the form of a 16 sample median filter. This smooths out the sensor's output and surpresses any potential measured fluctuations. Although this may introduce some latency within the processing, it is negligible since instantaneous sensor operation is not fundamental for the success of the product. 
+The SPI protocol will be used to interface with the [MAX722](https://datasheets.maximintegrated.com/en/ds/MAX7219-MAX7221.pdf) LED driver IC. There are four SPI channels implemented along with one I2C channel for communication with the OPT3001 ambient light sensor. The raspberry pi uses the Linux Kernel which is used to compile and run the source code. To reduce noise enduced by the ambient light sensor, post processing is utilised in the form of a 16 sample median filter. This smooths out the sensor's output and surpresses any potential measured fluctuations. Although this may introduce some latency within the processing, it is negligible since instantaneous sensor operation is not fundamental for the success of the product. 
 
 All source code is commited to this GitHub repository. The master branch contains the final release code, the development branch contains the "work in progress" code. There is also an exclusive branch used for the Android application development code. This has been merged with the development branch and is now released to the master branch.  
 
@@ -53,7 +61,7 @@ The Android app is developed using the QT framework in order to allow cross comp
 The output LED array consists of a mix of UV, RGB and IR LEDs. This is in order to account for as much of the wavespecturm emmited from the sun as possible, where the peak wavelengths within these coincide with those considered "ideal" for plant 
 growth. The array is constructed with 76% RGB, 16% IR and 8% UV as this compares well with the relative spectral 
 wavelength ratios of natural daylight as calculated from [1,2]. 
-The RGB LEDs are driven through the SPI interface of the [MAX7219](https://datasheets.maximintegrated.com/en/ds/MAX7219-MAX7221.pdf) LED driver IC. This driver allows intensity control through registers and also allows for an efficient PCB layout and easy programming. The UV and IR LEDs are driven through PWM control of a NPN BJT. 
+The RGB LEDs are driven through the SPI interface of the [MAX7221](https://datasheets.maximintegrated.com/en/ds/MAX7219-MAX7221.pdf) LED driver IC. This driver allows intensity control through registers and also allows for an efficient PCB layout and easy programming. The UV and IR LEDs are driven through PWM control of a NPN BJT. 
 The hardware design is split into four seperate boards, each containing 25 LEDs with their respective drivers. The KiCad files for the schematic, PCB layout and library cache can be found in this GitHub repository.
 
 ## Block Diagram
