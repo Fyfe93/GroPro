@@ -19,10 +19,10 @@ artificial light, therefore continuing to stimulate photosynthesis and thus opti
 
 Olly Warner is responsible for circuit design, all hardware implementation and fabrication. Alasdair Robertson is responsible for the core RPi3 code as well as sensor data aquisition, system evaluation and output to four MAX7219 LED Drivers for RGB LEDs and PWM output for UV & IR LEDs. Andrew Fyfe is responsible for the Android application design, implementation and its integration with the overall system. The time for hardware and software development is divided equally across the team, allowing each component to be completed for the set deadlines. This means that more time is availiable for debugging and construction of the final product.
 
-You can also follow the project's progress, interact with the developers and put forward your ideas for improvements through our social media pages linked above. Here is a short clip of us demonstrating one of our early RGB demoboards. 
+You can also follow the project's progress, interact with the developers and put forward your ideas for improvements through our social media pages linked above. Here is a short clip of us demonstrating our Texas Instruments OPT3001 ambient light sensor. 
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=cS9zusx6LBs
-" target="_blank"><img src="http://img.youtube.com/vi/cS9zusx6LBs/0.jpg" 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=JxFteMsjT0Y
+" target="_blank"><img src="http://img.youtube.com/vi/JxFteMsjT0Y/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 
