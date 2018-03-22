@@ -6,7 +6,9 @@ Adaptive Artificial Sunlight Radiator to Provide Optimum Photosynthetic Results 
 ## Team Members
 
 [*Olly Warner*](https://github.com/obwarner1)
+
 [*Alasdair Robertson*](https://github.com/TheAliRobertson)
+
 [*Andrew Fyfe*](https://github.com/Fyfe93)
 
 ## Overview
