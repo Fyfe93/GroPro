@@ -36,16 +36,12 @@ int main(int argc, const char * argv[]){
 	// Old Congif
 //	int data = 0b1100110011101010;
 	int fd = wiringPiI2CSetup(0x45);
-
+        int write = wiringPiI2CWriteReg16(fd, CONF_REG, data);
+	
 	while  (true) {
-		int write = wiringPiI2CWriteReg16(fd, CONF_REG, data);
 //		std::cout <<  write << std::endl;
 		std::this_thread::sleep_for(std::chrono::milliseconds(150));
 		float lux_ = lux(fd);
 		printf ("lux %f\n", lux_);
-//		binconversion();
-//		printf ("bin conversion %i\n", bin_);
-//		float maxlux_ = maxlux();
-//		printf ("max lux %f\n", maxlux_);
 	}
 }
