@@ -32,3 +32,7 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 ![alt text](https://github.com/Fyfe93/GroPro/blob/master/Images/GroProBlockDiagram_update.png)
 
+## Software Flow Diagram 
+
+![alt text](https://github.com/Fyfe93/GroPro/blob/master/Software Flow Diagram.pdf)
+
