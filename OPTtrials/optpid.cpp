@@ -7,6 +7,7 @@
 #include <thread>
 #include <chrono>
 #include <cmath>
+#include "pid.h"
 
 #define CONF_REG 0x01
 #define RES_REG 0x00
@@ -31,21 +32,20 @@ float lux(int fd){
 int main(int argc, const char * argv[]){
 
 	// New Config	
-	int data = 0x10CC;
+	int data = 0x10C4;
 
-	// Old Congif
-//	int data = 0b1100110011101010;
+	// Write Congif
 	int fd = wiringPiI2CSetup(0x45);
+	PID pid = PID(0.1, 83000, 0.01, 1.4e-3, 0.0, 2.5e-3);
 
 	while  (true) {
 		int write = wiringPiI2CWriteReg16(fd, CONF_REG, data);
-//		std::cout <<  write << std::endl;
-		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+		std::this_thread::sleep_for(std::chrono::milliseconds(500));
 		float lux_ = lux(fd);
-		printf ("lux %f\n", lux_);
-//		binconversion();
-//		printf ("bin conversion %i\n", bin_);
-//		float maxlux_ = maxlux();
-//		printf ("max lux %f\n", maxlux_);
+		printf ("lux %f\n\n", lux_);
+		double inc = pid.calculate(8000, lux_);
+		double sum = lux_ + inc;
+		printf("lux:%7.3f inc:% 7.3f sum:%7.3f\n\n",lux_, inc, sum);
+		lux_ += inc;
 	}
 }

@@ -3,7 +3,9 @@
 // MAX7221  LED Driver //
 
 #include <iostream>
+#include <errno.h>
 #include <wiringPiSPI.h>
+#include <unistd.h>
 #include <chrono>
 #include <thread>
 
@@ -81,44 +83,30 @@ int main(){
 		buffer [1] = 0x00;
 		wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
 
-
 		for(uint8_t i=0; i<9; i++){
 			buffer[0] = i;
 			buffer[1] = 0x00;
 			wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
 		}
 
-
-
-		//Setting All on Hopefully
-		for (int j=1; j<7; j++)
-		{
-			printf ("Address Register %i\n\n", j);
-	       		for (int i=0; i<256; i++)
-			{
-		          	buffer [0] = j;
-//		        	buffer [1] = (0b00000001 << i);
-				buffer [1] = i;
-		        	wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
-
-				printf ("Data Register %i\n\n", i);
-				//sleep(1);
-				std::this_thread::sleep_for(std::chrono::milliseconds(50));
-
-		 	 }
-		}
+		//Set Intensity of Blue U9
 		
-		//Turning all to white
+		buffer [0] = INTENSITY;
+		buffer [1] = 0x01;
+		wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
 		
-//		printf ("Turning all LED's to white\n\n");
-//		
-//		for (int x=1; x<7; x++){
-//			buffer [0] = x;
-//			buffer [1] = 0xff;
-//			wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
-//			
-//			printf ("Data Register %i\n\n", x);
-//			std::this_thread::sleep_for(std::chrono::milliseconds(250));
-//		}
-//}
+		buffer [0] = 3;
+		buffer [1] = 0x01;
+		wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
+
+		//Set Intensity of Blue U5
+
+		buffer [0] = INTENSITY;
+		buffer [1] = 0x0F;
+		wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
+
+		buffer [0] = 0x06;
+		buffer [1] = 0x80;
+		wiringPiSPIDataRW (SPI_CHANNEL, buffer, sizeof (buffer));
 }
+
