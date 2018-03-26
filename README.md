@@ -34,5 +34,5 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 ## Software Flow Diagram 
 
-![alt text](https://github.com/Fyfe93/GroPro/blob/master/SoftwareFlowDiagram.png | width=100)
+<img src="https://github.com/Fyfe93/GroPro/blob/master/SoftwareFlowDiagram.png" data-canonical-src="https://github.com/Fyfe93/GroPro/blob/master/SoftwareFlowDiagram.png" width ="750" height ="400" />)
 
