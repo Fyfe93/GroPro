@@ -41,7 +41,9 @@ public:
 		blue,
 		yellow,
 		turqoise,
-		purple
+		purple,
+		warm,
+		cold
 	};
 
 private:

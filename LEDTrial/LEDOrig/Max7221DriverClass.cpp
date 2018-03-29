@@ -163,6 +163,91 @@ void Max7219driver::setColour(int colour)
                                 write (addrRegBuffer, bufferSize);
                         }
 			break;
+		//Warm Setting
+		case 7 : 
+			reset();
+			//Digit 0
+			for (int j=1; j<2; j++)
+			{
+				addrRegBuffer [0] = j;
+				addrRegBuffer [1] = 0xFF;
+				write (addrRegBuffer, bufferSize);
+			}
+			//Digit 1
+			for (int j=2; j<3; j++)
+			{
+				addrRegBuffer [0] = j;	
+				addrRegBuffer [1] = 0xF9;
+				write (addrRegBuffer, bufferSize);
+			}
+			//Digit 2
+			for (int j=3; j<4; j++)
+			{
+				addrRegBuffer [0] = j;
+				addrRegBuffer [1] = 0xD1;
+				write (addrRegBuffer, bufferSize);
+			}
+			//Digit 3
+			for (int j=4; j<5; j++)
+			{
+				addrRegBuffer [0] = j;
+				addrRegBuffer [1] = 0xF0;
+				write (addrRegBuffer, bufferSize);
+			}
+			//Digit 4
+			for (int j=5; j<6; j++)
+			{
+				addrRegBuffer [0] = j;
+				addrRegBuffer [1] = 0x50;
+				write (addrRegBuffer, bufferSize); 
+			}
+			break;
+		//Cold Setting
+		case 8 :
+			reset();
+			//Digit 0
+			for (int j=1; j<2; j++)
+			{
+				addrRegBuffer [0] = j;
+				addrRegBuffer [1] = 0xf1;
+				write (addrRegBuffer, bufferSize);
+			}
+			//Digit 1
+			for (int j=2; j<3; j++)
+			{
+				addrRegBuffer [0] = j;
+				addrRegBuffer [1] = 0xDB;
+				write (addrRegBuffer, bufferSize);
+			}
+			//Digit 2
+			for (int j=3; j<4; j++)
+			{
+				addrRegBuffer [0] = j;
+				addrRegBuffer [1] = 0xFD;
+				write (addrRegBuffer, bufferSize);
+			}
+			//Digit 3
+			for (int j=4; j<5; j++)
+			{
+				addrRegBuffer [0] = j;
+				addrRegBuffer [1] = 0x40;
+				write (addrRegBuffer, bufferSize);
+			}
+			//Digit 4
+			for (int j=5; j<6; j++)
+			{
+				addrRegBuffer [0] = j;
+				addrRegBuffer [1] = 0xA0;
+				write (addrRegBuffer, bufferSize);
+			}
+			//Digit 5
+			for (int j=6; j<7; j++)
+			{
+				addrRegBuffer [0] = j;
+				addrRegBuffer [1] = 0x70;
+				write (addrRegBuffer, bufferSize);
+			}
+			break;
 		//Default White
 		default :
 			reset();
