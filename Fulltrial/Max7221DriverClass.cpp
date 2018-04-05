@@ -18,8 +18,8 @@ Max7219driver::Max7219driver()
 
 	// Setting Scan Limit for all LED's
 	addrRegBuffer [0] = SCAN_LIMIT;
-        addrRegBuffer [1] = 0x07;
-        write (addrRegBuffer, bufferSize);
+    addrRegBuffer [1] = 0x07;
+    write (addrRegBuffer, bufferSize);
 
 	// Setting Intensity Full
 	setIntensity (15);
