@@ -13,11 +13,10 @@ Adaptive Artificial Sunlight Radiator to Provide Optimum Photosynthetic Results 
 
 ## Overview
 
-The aim of this project is to design and fabricate a prototype for an adaptive lighting system for optimising plant growth. 
-It provides improved usability over standard lighting systems that are currently available as the user can control and 
-monitor the device from an Android phone application or not interact with device at all during operation due to its 
-real-time auto-adjustment protocol. The project is completed in association with the [University of Glasgow](https://www.gla.ac.uk/) and is an exercise to gain 
-experience with real-time embedded programming.
+The aim of this project is to design and fabricate a prototype adaptive lighting system for optimising plant growth. 
+It provides improved usability over standard lighting systems that are currently available, as the user can control and 
+monitor the device from an Android phone application or not interact with device at all during operation. This is due to its 
+real-time auto-adjustment protocol. The project is completed in association with the [University of Glasgow](https://www.gla.ac.uk/) and is an exercise to gain experience with real-time embedded programming.
 
 You can follow the project's progress, interact with the developers and put forward your ideas for improvements through our social media pages linked above. Take a look through the Wiki for a detailed explanation on all elements of the project. All relevent files are in this Github repository.
 
