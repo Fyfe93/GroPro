@@ -11,11 +11,15 @@ GLOBDATA globalData;
 
 
 void GroProThread::run() {
-    PID pid = PID(0.4, 500, 0, 0.01, 0.01, 0.008);
+    PID pid = PID(0.4, 100, 0, 0.002, 0.002, 0.01);
     Max7219driver driver;
     Opt3001 sensor;
     sensor.Write(0x45);
     driver.setColour(Max7219driver::colour::white);
+    int pwmLevel = 100;
+    PwmClass pwm;
+    pwm.setupAllPins();
+    pwm.setLevelAllPins(pwmLevel);
 
     while (1)
     {
@@ -26,10 +30,10 @@ void GroProThread::run() {
                 driver.setIntensity(globalData.globalLightIntensity);
                 break;
             case 2:
-                //printf("slider2");
+                pwm.setLevelUvPins(globalData.globalLightIntensity);
                 break;
             case 3:
-                //printf("slider3");
+                pwm.setLevelIrPins(globalData.globalLightIntensity);
                 break;
             case 4:
                 driver.setColour(Max7219driver::colour::warm);
@@ -42,37 +46,37 @@ void GroProThread::run() {
                 break;
             case 7:
                 lux = sensor.Read();
-                PIDout = pid.calculate(3000, lux);
-                PIDout = ((PIDout / 33.3));
+                PIDout = pid.calculate(46, lux);
+                PIDout = ((PIDout / 6.25)-1);
                 PIDout = (int)PIDout;
                 driver.setIntensity(PIDout);
                 break;
             case 8:
                 lux = sensor.Read();
-                PIDout = pid.calculate(3000, lux);
-                PIDout = ((PIDout / 33.3));
+                PIDout = pid.calculate(46, lux);
+                PIDout = ((PIDout / 6.25)-1);
                 PIDout = (int)PIDout;
                 driver.setIntensity(PIDout);
                 break;
             default:
                 lux = sensor.Read();
                 printf ("Lux %f\n\n", lux);
-                PIDout = pid.calculate(3000, lux);
-                printf ("Pid Pre-Scale %f\n\n", PIDout);
-                PIDout = ((PIDout / 33.3));
+                PIDout = pid.calculate(46, lux);
+                //printf ("Pid Pre-Scale %f\n\n", PIDout);
+                PIDout = ((PIDout / 6.25)-1);
                 PIDout = (int)PIDout;
-                printf ("Pid Post-Scale %f\n\n", PIDout);
+                //printf ("Pid Post-Scale %f\n\n", PIDout);
                 driver.setIntensity(PIDout);
                 break;
         }
-        
-        
-
-        std::this_thread::sleep_for(std::chrono::milliseconds(50));
-        
 
 
-        
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
+
+
+
     }
 }
 
@@ -83,15 +87,15 @@ void GroProThread::listen() {
     GroProServer server(5002, messageArray);
     server.clear(messageArray);
     printf("Server Open");
-    
+
     while (1)
     {
         int msg;
         ssize_t issue =  server.run(messageArray);
         sscanf(messageArray, "%d", &msg);
-        
+
         globalData.globalOperationId = (msg % 10);
-        globalData.globalLightIntensity = (int)((msg/10)/6.67);
+        globalData.globalLightIntensity = (int)(((msg/10)/6.25)-1);
 //        printf("msg: %d\n",msg/10);
 //        printf("id: %d\n",globalData.globalOperationId);
         if (globalData.globalOperationId == 7) {
@@ -105,8 +109,8 @@ void GroProThread::listen() {
             //break;
         }
         server.clear(messageArray);
-        
+
     }
-    
+
     delete[] messageArray;
 }

@@ -1,5 +1,7 @@
 #include <wiringPiSPI.h>
+//#include <wiringPi.h>
 #include <thread>
+#include <chrono>
 
 //SPI Channel is either 0 or 1
 //Clock speed for MAX7219 is 10MHz
@@ -53,12 +55,148 @@ private:
 
 	void write(unsigned char* addrRegBuffer, size_t bufferSize)
 	{
-		for (int i = 0; i < 4; i++)
-		{
-			wiringPiSPIDataRW(SPI_CHANNEL, addrRegBuffer, sizeof (addrRegBuffer));
-			addrRegBuffer[0] = addrRegBuffer[0] << 4;
-			addrRegBuffer[1] = addrRegBuffer[1] << 4;
-		}
+        unsigned char tempAddrBuffer[2];
+        tempAddrBuffer[0] = 0x00;
+        tempAddrBuffer[1] = 0x00;
+//        pinMode (14, OUTPUT);
+
+
+        //printf("%d\n", addrRegBuffer[0] );
+        //printf("%d\n", addrRegBuffer[1] );
+        
+        int maxNr = 4;
+        int maxInUse = 4;
+        
+//        digitalWrite(10,LOW);
+        
+        //NO-OPS
+        int c = 0;
+        for (c = maxInUse; c> maxNr; c--)
+        {
+            wiringPiSPIDataRW(SPI_CHANNEL, tempAddrBuffer, sizeof (tempAddrBuffer));
+            
+//            unsigned char i = 8;
+//            unsigned char mask;
+//            while(i> 0)
+//            {
+//                mask = 0x01 << (i -1);
+//                digitalWrite(14, LOW);
+//                if (tempAddrBuffer[0] & mask) {
+//                    digitalWrite(12, HIGH);
+//                }else{
+//                    digitalWrite(12, LOW);
+//                }
+//                digitalWrite(14, HIGH);
+//                --i;
+//            }
+//
+//            i = 8;
+//            while(i> 0)
+//            {
+//                mask = 0x01 << (i -1);
+//                digitalWrite(14, LOW);
+//                if (tempAddrBuffer[1] & mask) {
+//                    digitalWrite(12, HIGH);
+//                }else{
+//                    digitalWrite(12, LOW);
+//                }
+//                digitalWrite(14, HIGH);
+//                --i;
+//            }
+        }
+        
+        //REG AND DATA
+//        unsigned char i = 8;
+//        unsigned char mask;
+//        while(i> 0)
+//        {
+//            mask = 0x01 << (i -1);
+//            digitalWrite(14, LOW);
+//            if (addrRegBuffer[0] & mask) {
+//                digitalWrite(12, HIGH);
+//            }else{
+//                digitalWrite(12, LOW);
+//            }
+//            digitalWrite(14, HIGH);
+//            --i;
+//        }
+//
+//        i = 8;
+//        while(i> 0)
+//        {
+//            mask = 0x01 << (i -1);
+//            digitalWrite(14, LOW);
+//            if (addrRegBuffer[1] & mask) {
+//                digitalWrite(12, HIGH);
+//            }else{
+//                digitalWrite(12, LOW);
+//            }
+//            digitalWrite(14, HIGH);
+//            --i;
+//        }
+        
+        wiringPiSPIDataRW(SPI_CHANNEL, addrRegBuffer, sizeof (addrRegBuffer));
+        //NO OPS
+        for (c = maxNr - 1; c>= 1; c--)
+        {
+            wiringPiSPIDataRW(SPI_CHANNEL, tempAddrBuffer, sizeof (tempAddrBuffer));
+//            unsigned char i = 8;
+//            unsigned char mask;
+//            while(i> 0)
+//            {
+//                mask = 0x01 << (i -1);
+//                digitalWrite(14, LOW);
+//                if (tempAddrBuffer[0] & mask) {
+//                    digitalWrite(12, HIGH);
+//                }else{
+//                    digitalWrite(12, LOW);
+//                }
+//                digitalWrite(14, HIGH);
+//                --i;
+//            }
+//
+//            i = 8;
+//            while(i> 0)
+//            {
+//                mask = 0x01 << (i -1);
+//                digitalWrite(14, LOW);
+//                if (tempAddrBuffer[1] & mask) {
+//                    digitalWrite(12, HIGH);
+//                }else{
+//                    digitalWrite(12, LOW);
+//                }
+//                digitalWrite(14, HIGH);
+//                --i;
+//            }
+        }
+        
+//        digitalWrite(14,LOW);
+//        digitalWrite(14,HIGH);
+        
+//        wiringPiSPIDataRW(SPI_CHANNEL, tempAddrBuffer, sizeof (tempAddrBuffer));
+//        wiringPiSPIDataRW(SPI_CHANNEL, tempAddrBuffer, sizeof (tempAddrBuffer));
+//        wiringPiSPIDataRW(SPI_CHANNEL, tempAddrBuffer, sizeof (tempAddrBuffer));
+//        wiringPiSPIDataRW(SPI_CHANNEL, addrRegBuffer, sizeof (addrRegBuffer));
+//
+//        wiringPiSPIDataRW(SPI_CHANNEL, tempAddrBuffer, sizeof (tempAddrBuffer));
+//        wiringPiSPIDataRW(SPI_CHANNEL, tempAddrBuffer, sizeof (tempAddrBuffer));
+//        wiringPiSPIDataRW(SPI_CHANNEL, addrRegBuffer, sizeof (addrRegBuffer));
+//        wiringPiSPIDataRW(SPI_CHANNEL, tempAddrBuffer, sizeof (tempAddrBuffer));
+//
+//        wiringPiSPIDataRW(SPI_CHANNEL, tempAddrBuffer, sizeof (tempAddrBuffer));
+//        wiringPiSPIDataRW(SPI_CHANNEL, addrRegBuffer, sizeof (addrRegBuffer));
+//        wiringPiSPIDataRW(SPI_CHANNEL, tempAddrBuffer, sizeof (tempAddrBuffer));
+//        wiringPiSPIDataRW(SPI_CHANNEL, tempAddrBuffer, sizeof (tempAddrBuffer));
+//
+//        wiringPiSPIDataRW(SPI_CHANNEL, addrRegBuffer, sizeof (addrRegBuffer));
+//        wiringPiSPIDataRW(SPI_CHANNEL, tempAddrBuffer, sizeof (tempAddrBuffer));
+//        wiringPiSPIDataRW(SPI_CHANNEL, tempAddrBuffer, sizeof (tempAddrBuffer));
+//        wiringPiSPIDataRW(SPI_CHANNEL, tempAddrBuffer, sizeof (tempAddrBuffer));
+        
+
+
+
+
 
 	}
 

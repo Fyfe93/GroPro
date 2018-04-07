@@ -110,7 +110,7 @@ ssize_t GroProServer::run(char* returnedMessage)
     ssize_t n = read(m_newsockfd,returnedMessage,49);
     if (n <= 0)
     {
-        error("ERROR reading from socket/n Restarting");
+        error("ERROR reading from socket\n Restarting\n");
         fflush(stdin);
         fflush(stdout);
         shutdown(m_newsockfd, m_sockfd);

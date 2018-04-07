@@ -19,6 +19,7 @@
 #include "OPT.h"
 #include "pid.h"
 #include "GroProServer.h"
+#include "PwmClass.h"
 
 
 // abstract thread which contains the inner workings of the thread model
