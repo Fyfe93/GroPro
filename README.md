@@ -33,5 +33,5 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 ## Software Flow Diagram 
 
-<img src="https://github.com/Fyfe93/GroPro/blob/master/Software Flow Diagram 2.0.png" data-canonical-src="https://github.com/Fyfe93/GroPro/blob/master/Software Flow Diagram 2.0.png" width ="750" height ="400" />)
+<img src="https://github.com/Fyfe93/GroPro/blob/master/Images/Software Flow Diagram 2.0.png" data-canonical-src="https://github.com/Fyfe93/GroPro/blob/master/Images/Software Flow Diagram 2.0.png" width ="750" height ="400" />)
 
