@@ -25,7 +25,7 @@ Max7219driver::Max7219driver()
 
 	// Setting Intensity Full
     setIntensity (15);
-    //reset();
+    reset();
     //setAllLedsOn(false);
 }
 
@@ -58,7 +58,7 @@ void Max7219driver::setAllLedsOn(bool isOn)
 // Reset all LED's
 void Max7219driver::reset()
 {
-    for(uint8_t i=0; i<9; i++)
+    for(uint8_t i=1; i<9; i++)
     {
         addrRegBuffer [0] = i;
         addrRegBuffer [1] = 0x00;
@@ -299,10 +299,10 @@ void Max7219driver::setColour(int colour)
 		default :
 			reset();
 			for (int j=1; j<9; j++)
-      {
-        addrRegBuffer [0] = j;
-        addrRegBuffer [1] = 0xff;
-        write (addrRegBuffer, bufferSize);
+            {
+                addrRegBuffer [0] = j;
+                addrRegBuffer [1] = 0xff;
+                write (addrRegBuffer, bufferSize);
 			}
 			break;
 

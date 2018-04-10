@@ -2,7 +2,8 @@
 
 typedef struct
 {
-    int    globalLightIntensity;
+    int    globalLightIntensityVis;
+    int    globalLightIntensityIrUv;
     int    globalOperationId;
     int    globalRealTimeToggle;
 } GLOBDATA;
@@ -27,13 +28,13 @@ void GroProThread::run() {
                 float lux;
                 float PIDout;
             case 1:
-                driver.setIntensity(globalData.globalLightIntensity);
+                driver.setIntensity(globalData.globalLightIntensityVis);
                 break;
             case 2:
-                pwm.setLevelUvPins(globalData.globalLightIntensity);
+                pwm.setLevelUvPins(globalData.globalLightIntensityIrUv);
                 break;
             case 3:
-                pwm.setLevelIrPins(globalData.globalLightIntensity);
+                pwm.setLevelIrPins(globalData.globalLightIntensityIrUv);
                 break;
             case 4:
                 driver.setColour(Max7219driver::colour::warm);
@@ -47,6 +48,8 @@ void GroProThread::run() {
             case 7:
                 lux = sensor.Read();
                 PIDout = pid.calculate(46, lux);
+                pwm.setLevelUvPins(PIDout);
+                pwm.setLevelIrPins(PIDout);
                 PIDout = ((PIDout / 6.25)-1);
                 PIDout = (int)PIDout;
                 driver.setIntensity(PIDout);
@@ -54,15 +57,19 @@ void GroProThread::run() {
             case 8:
                 lux = sensor.Read();
                 PIDout = pid.calculate(46, lux);
+                pwm.setLevelUvPins(PIDout);
+                pwm.setLevelIrPins(PIDout);
                 PIDout = ((PIDout / 6.25)-1);
                 PIDout = (int)PIDout;
                 driver.setIntensity(PIDout);
                 break;
             default:
                 lux = sensor.Read();
-                printf ("Lux %f\n\n", lux);
+                //printf ("Lux %f\n\n", lux);
                 PIDout = pid.calculate(46, lux);
                 //printf ("Pid Pre-Scale %f\n\n", PIDout);
+                pwm.setLevelUvPins(PIDout);
+                pwm.setLevelIrPins(PIDout);
                 PIDout = ((PIDout / 6.25)-1);
                 PIDout = (int)PIDout;
                 //printf ("Pid Post-Scale %f\n\n", PIDout);
@@ -95,7 +102,8 @@ void GroProThread::listen() {
         sscanf(messageArray, "%d", &msg);
 
         globalData.globalOperationId = (msg % 10);
-        globalData.globalLightIntensity = (int)(((msg/10)/6.25)-1);
+        globalData.globalLightIntensityVis = (int)(((msg/10)/6.25)-1);
+        globalData.globalLightIntensityIrUv = (int)(msg/10);
 //        printf("msg: %d\n",msg/10);
 //        printf("id: %d\n",globalData.globalOperationId);
         if (globalData.globalOperationId == 7) {
