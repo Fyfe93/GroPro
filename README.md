@@ -29,8 +29,8 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 ## Block Diagram
 
-![alt text](https://github.com/Fyfe93/GroPro/blob/master/Media/Images/MarketingImages/GroProBlockDiagram_update.png)
+![alt text](https://github.com/Fyfe93/GroPro/blob/master/Media/Images/ProjectImages/GroProBlockDiagram_update.png)
 
 ## Software Flow Diagram 
 
-![alt text](https://github.com/Fyfe93/GroPro/blob/master/Media/Images/MarketingImages/SoftwareFlowDiagram2.0.png)
+![alt text](https://github.com/Fyfe93/GroPro/blob/master/Media/Images/ProjectImages/SoftwareFlowDiagram2.0.png)
