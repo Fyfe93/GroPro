@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file alias="GroProLogo">GroProLogo.png</file>
+        <file>RemoteHostClosedError.qml</file>
+        <file>ConnectionRefusedError.qml</file>
+        <file>OtherError.qml</file>
+    </qresource>
+</RCC>
