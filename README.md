@@ -1,4 +1,4 @@
-![alt text](https://github.com/Fyfe93/GroPro/blob/master/Images/GroProLogo.png)                                     [![alt text](https://github.com/Fyfe93/GroPro/blob/master/Images/instagram_icon.png)](https://www.instagram.com/groproglasgow/) [<img src="https://github.com/Fyfe93/GroPro/blob/master/Images/twitter_icon.png" width="40">](https://twitter.com/GroProGlasgow) [<img src="https://github.com/Fyfe93/GroPro/blob/master/Images/YouTube.png" width="40">](https://www.youtube.com/channel/UC6INIFKsnIOoyIMZFyKa2zQ)
+![alt text](https://github.com/Fyfe93/GroPro/blob/master/Media/Images/MarketingImages/GroProLogo.png)                                     [![alt text](https://github.com/Fyfe93/GroPro/blob/master/Media/Images/MarketingImages/instagram_icon.png)](https://www.instagram.com/groproglasgow/) [<img src="https://github.com/Fyfe93/GroPro/blob/master/Media/Images/MarketingImages/twitter_icon.png" width="40">](https://twitter.com/GroProGlasgow) [<img src="https://github.com/Fyfe93/GroPro/blob/master/Media/Images/MarketingImages/YouTube.png" width="40">](https://www.youtube.com/channel/UC6INIFKsnIOoyIMZFyKa2zQ)
 
 # GroPro
 Adaptive Artificial Sunlight Radiator to Provide Optimum Photosynthetic Results in Plant Growing Applications.
@@ -29,8 +29,8 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 ## Block Diagram
 
-![alt text](https://github.com/Fyfe93/GroPro/blob/master/Images/GroProBlockDiagram_update.png)
+![alt text](https://github.com/Fyfe93/GroPro/blob/master/Media/Images/ProjectImages/GroProBlockDiagram_update.png)
 
 ## Software Flow Diagram 
 
-![alt text](https://github.com/Fyfe93/GroPro/blob/master/Images/SoftwareFlowDiagram2.0.png)
+![alt text](https://github.com/Fyfe93/GroPro/blob/master/Media/Images/ProjectImages/SoftwareFlowDiagram2.0.png)
