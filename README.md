@@ -1,7 +1,7 @@
 ![alt text](https://github.com/Fyfe93/GroPro/blob/master/Media/Images/MarketingImages/GroProLogo.png)                                     [![alt text](https://github.com/Fyfe93/GroPro/blob/master/Media/Images/MarketingImages/instagram_icon.png)](https://www.instagram.com/groproglasgow/) [<img src="https://github.com/Fyfe93/GroPro/blob/master/Media/Images/MarketingImages/twitter_icon.png" width="40">](https://twitter.com/GroProGlasgow) [<img src="https://github.com/Fyfe93/GroPro/blob/master/Media/Images/MarketingImages/YouTube.png" width="40">](https://www.youtube.com/channel/UC6INIFKsnIOoyIMZFyKa2zQ)
 
 # GroPro
-Adaptive Artificial Sunlight Radiator to Provide Optimum Photosynthetic Results in Plant Growing Applications.
+_Adaptive Artificial Sunlight Radiator to Provide Optimum Photosynthetic Results in Plant Growing Applications._
 
 ## Team Members
 
