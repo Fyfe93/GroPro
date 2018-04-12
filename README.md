@@ -34,3 +34,9 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 ## Software Flow Diagram 
 
 ![alt text](https://github.com/Fyfe93/GroPro/blob/master/Media/Images/ProjectImages/SoftwareFlowDiagram2.0.png)
+
+## University of Glasgow
+
+Real Time Embedded Programming 5 project, in association with University of Glasgow.
+
+Course convener: Dr. B. Porr
