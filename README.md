@@ -20,7 +20,7 @@ real-time auto-adjustment protocol. The project is completed in association with
 
 You can follow the project's progress, interact with the developers and put forward your ideas for improvements through our social media pages linked above. Take a look through the Wiki for a detailed explanation on all elements of the project. All relevent files are in this Github repository.
 
-Here is a short clip of us demonstrating our Texas Instruments OPT3001 ambient light sensor. 
+Please see our Youtube video demonstration of the GroPro below: 
 
 <a href="https://www.youtube.com/watch?v=ySDDn5z2SOs
 " target="_blank"><img src="http://img.youtube.com/vi/ySDDn5z2SOs/0.jpg" 
