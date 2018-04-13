@@ -1,6 +1,6 @@
 //
-//  Server.hpp
-//  testConcepts
+//  GroProServer.h
+//  GroPro Real-time Embedded Programming
 //
 //  Created by Andrew Fyfe on 04/04/2018.
 //  Copyright © 2018 Andrew Fyfe. All rights reserved.
@@ -21,10 +21,13 @@ class GroProServer
 {
     
 public:
-    GroProServer(int portNum);
+    GroProServer(int portNum,  char* returnedMessage);
     ~GroProServer();
-    void run();
+    ssize_t run(char* returnedMessage);
+    void clear(char* returnedMessage);
     void setPort(int portNum);
+    void reactivateServer();
+    void closePort();
     
     
 private:
@@ -36,9 +39,8 @@ private:
     void error(const char *msg)
     {
         perror(msg);
-        exit(1);
+        //exit(1);
     }
-    
     
 };
 
