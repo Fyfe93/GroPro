@@ -22,8 +22,8 @@ You can follow the project's progress, interact with the developers and put forw
 
 Here is a short clip of us demonstrating our Texas Instruments OPT3001 ambient light sensor. 
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=JxFteMsjT0Y
-" target="_blank"><img src="http://img.youtube.com/vi/JxFteMsjT0Y/0.jpg" 
+<a href="https://www.youtube.com/watch?v=ySDDn5z2SOs
+" target="_blank"><img src="http://img.youtube.com/vi/ySDDn5z2SOs/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 
