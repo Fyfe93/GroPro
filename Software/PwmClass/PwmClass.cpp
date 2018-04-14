@@ -2,10 +2,10 @@
 
 //sudo g++ pwmTest.cpp -o pwmTest -lwiringPi -lpthread to compile.
 
-PwmClass::PwmClass()
+PwmClass::PwmClass(int defaultLevel)
 {
     wiringPiSetup();
-    m_level = 100;
+    m_level = defaultLevel;
 }
 
 PwmClass::~PwmClass()

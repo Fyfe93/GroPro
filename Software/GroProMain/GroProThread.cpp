@@ -12,7 +12,7 @@ GLOBDATA globalData;
 
 
 void GroProThread::run() {
-    PID pid = PID(0.4, 100, 0, 0.002, 0.002, 0.01);
+    PID pid = PID(0.4, 100, 0, 0.004, 0.001, 0.03);
     Max7219driver driver;
     Opt3001 sensor;
     sensor.Write(0x45);

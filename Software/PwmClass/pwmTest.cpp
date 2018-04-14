@@ -1,14 +1,33 @@
 #include <stdio.h>    // Used for printf() statements
+#include <assert.h>
+#include <iostream>
 #include "PwmClass.h"
 
-//sudo g++ pwmTest.cpp -o pwmTest -lwiringPi -lpthread to compile.
+//sudo g++ pwmTest.cpp PwmClass.cpp -o pwmTest -lwiringPi -lpthread to compile.
 
+
+//UNIT TEST FOR PWM FUNCTIONALITY.
 int main(void)
 {
+    
+    bool test_success;
+    int passed = 0;
+    int totalTests = 1;
     int pwmLevel = 100;
-    PwmClass pwm;
-    pwm.setupAllPins();
-    pwm.setLevelAllPins(pwmLevel);
+    PwmClass *pwm;
+
+    test_success = true;
+    try { pwm = new PwmClass(pwmLevel);
+        pwm->setupAllPins();
+        pwm->setLevelAllPins(pwmLevel);
+    }
+    catch(std::exception& e) { test_success = false; }
+    assert(test_success);
+    passed++;
+    delete pwm;
+    
+    
+    std::cout << "Test Successes: " << passed << " out of " << totalTests << " tests were successful\n";
     
     for (;;) delay (1000) ;
     

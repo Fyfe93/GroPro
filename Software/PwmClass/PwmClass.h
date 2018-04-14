@@ -10,7 +10,7 @@
 class PwmClass
 {
 public:
-    PwmClass();
+    PwmClass(int defaultLevel);
     ~PwmClass();
     void setupAllPins();
     
@@ -22,7 +22,7 @@ public:
     
 private:
     std::vector<int> m_assignedPinsVec{3,4,28,29,0,1,24,27};
-    int m_level {100};
+    int m_level {0};
     int m_numberOfPins{8};
     
  
