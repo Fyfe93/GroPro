@@ -26,7 +26,7 @@ Please see our Youtube video demonstration of the GroPro below:
 " target="_blank"><img src="http://img.youtube.com/vi/ySDDn5z2SOs/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
-[<img src="https://github.com/Fyfe93/GroPro/blob/master/Media/Images/ProjectImages/GroProLabelled.png" width="50">]
+<img src="https://github.com/Fyfe93/GroPro/blob/master/Media/Images/ProjectImages/GroProLabelled.png" width="50">
 
 ## Block Diagram
 
