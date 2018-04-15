@@ -24,7 +24,7 @@ Please see our Youtube video demonstration of the GroPro below:
 
 <a href="https://www.youtube.com/watch?v=yk8lQQcMnJg
 " target="_blank"><img src="https://github.com/Fyfe93/GroPro/blob/master/Media/Images/MarketingImages/GroProVidThumbnail.png" 
-alt="IMAGE ALT TEXT HERE" width="500" border="10" /></a>
+alt="IMAGE ALT TEXT HERE" width="500" /></a>
 
 ## Final Product
 
