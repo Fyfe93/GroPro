@@ -1,7 +1,5 @@
 #include <wiringPiSPI.h>
-//#include <wiringPi.h>
 #include <thread>
-#include <chrono>
 
 //SPI Channel is either 0 or 1
 //Clock speed for MAX7219 is 10MHz
@@ -63,7 +61,7 @@ private:
         tempAddrBuffer[4] = addrRegBuffer[0];
         tempAddrBuffer[5] = addrRegBuffer[1];
         tempAddrBuffer[6] = addrRegBuffer[0];
-				tempAddrBuffer[7] = addrRegBuffer[1];
+        tempAddrBuffer[7] = addrRegBuffer[1];
 
         wiringPiSPIDataRW(SPI_CHANNEL, tempAddrBuffer, sizeof (tempAddrBuffer));
 

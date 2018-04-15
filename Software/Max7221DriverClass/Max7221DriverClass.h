@@ -26,13 +26,14 @@
 class Max7219driver
 {
 public:
-	Max7219driver();
+	Max7219driver(); // Initial LED driver setup, SPI setup
 	~Max7219driver();
-	void setColour(int colour);
-	void setIntensity(int  intensityLevel);
-	void setAllLedsOn(bool isOn);
-	void reset();
-
+	void setColour(int colour); // Sets colour of LEDs given in enum
+	void setIntensity(int  intensityLevel); // Sets Intensity of LEDs
+	void setAllLedsOn(bool isOn); // Turns On/Off LEDs
+	void reset(); // Writes each LED state to zero
+    
+    // List of colours that can be created by the LEDs
 	enum colour
 	{
 		white = 0,
@@ -48,17 +49,23 @@ public:
 
 private:
 
-	unsigned char  addrRegBuffer[2];
+	unsigned char  addrRegBuffer[2]; // Contains the Address and data that is sent to the LED driver
 	int bufferSize {2};
-
+    
+    //Writes Address and Data registers to all Driver chips
 	void write(unsigned char* addrRegBuffer, size_t bufferSize)
-	{
-		for (int i = 0; i < 4; i++)
-		{
-			wiringPiSPIDataRW(SPI_CHANNEL, addrRegBuffer, sizeof (addrRegBuffer));
-			addrRegBuffer[0] = addrRegBuffer[0] << 4;
-			addrRegBuffer[1] = addrRegBuffer[1] << 4;
-		}
+    {
+        unsigned char tempAddrBuffer[8];
+        tempAddrBuffer[0] = addrRegBuffer[0];
+        tempAddrBuffer[1] = addrRegBuffer[1];
+        tempAddrBuffer[2] = addrRegBuffer[0];
+        tempAddrBuffer[3] = addrRegBuffer[1];
+        tempAddrBuffer[4] = addrRegBuffer[0];
+        tempAddrBuffer[5] = addrRegBuffer[1];
+        tempAddrBuffer[6] = addrRegBuffer[0];
+        tempAddrBuffer[7] = addrRegBuffer[1];
+        
+        wiringPiSPIDataRW(SPI_CHANNEL, tempAddrBuffer, sizeof (tempAddrBuffer));
 
 	}
 
