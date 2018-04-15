@@ -22,7 +22,7 @@ You can follow the project's progress, interact with the developers and put forw
 
 Please see our Youtube video demonstration of the GroPro below: 
 
-<a href="https://www.youtube.com/watch?v=ySDDn5z2SOs
+<a href="https://www.youtube.com/watch?v=yk8lQQcMnJg
 " target="_blank"><img src="http://img.youtube.com/vi/ySDDn5z2SOs/0.jpg" 
 alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
