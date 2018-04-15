@@ -1,6 +1,6 @@
 #include "PwmClass.h"
 
-//sudo g++ pwmTest.cpp -o pwmTest -lwiringPi -lpthread to compile.
+//sudo g++ pwmTest.cpp PwmClass.cpp -o pwmTest -lwiringPi -lpthread to compile.
 
 PwmClass::PwmClass(int defaultLevel)
 {

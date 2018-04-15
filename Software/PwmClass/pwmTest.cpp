@@ -1,4 +1,4 @@
-#include <stdio.h>    // Used for printf() statements
+#include <stdio.h>  
 #include <assert.h>
 #include <iostream>
 #include "PwmClass.h"
@@ -15,7 +15,8 @@ int main(void)
     int totalTests = 1;
     int pwmLevel = 100;
     PwmClass *pwm;
-
+    
+    // Test 1: initialising Pwm setup across GPIO pins
     test_success = true;
     try { pwm = new PwmClass(pwmLevel);
         pwm->setupAllPins();
