@@ -16,11 +16,11 @@ int main( int argc, const char* argv[] ) {
     char* returnedMessage;
     returnedMessage = new char[50];
     
-    GroProServer* server(portNo);
+    GroProServer* server;
     
     //Test 1: Contructor and initial port opening
     test_success = true;
-    try { server = new GroProServer(portNo);}
+    try { server = new GroProServer(portNo, returnedMessage);}
     catch(std::exception& e) { test_success = false; }
     assert(test_success);
     passed++;
@@ -28,14 +28,14 @@ int main( int argc, const char* argv[] ) {
     
     //Test 2: Establish port listener
     test_success = true;
-    try { server = new GroProServer(portNo);
-        ssize_t error = server->run(returnedMessage);;
+    try { server = new GroProServer(portNo, returnedMessage);
+        ssize_t error = server->run(returnedMessage);
     }
     catch(std::exception& e) { test_success = false; }
     assert(test_success);
     passed++;
     delete server;
-    delete[] returnedMessag;
+    delete[] returnedMessage;
 
 
     std::cout << "Test Successes: " << passed << " out of " << totalTests << " tests were successful\n";

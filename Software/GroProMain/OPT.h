@@ -10,10 +10,10 @@
 class Opt3001
 {
 public:
-	Opt3001();
+	Opt3001(); //  Sensor setup, I2C setup
 	~Opt3001();
-	void Write(int addr);
-	double Read();
+	void Write(int addr); // Writes to sensor registers over I2C
+	float Read(); // Reads value provided by sensor from sensor data register
 
 private:
 
@@ -23,7 +23,7 @@ private:
 	int m_fd;
 
 //Lux Conversion
-	double readLux(int readres)
+	float readLux(int readres)
 	{
 		int left = readres&0xFF; 
 		left = left << 8;
@@ -33,7 +33,7 @@ private:
 
 		int exponential = readres&0b1111000000000000;
 		exponential = exponential >> 12;
-		double LSB_Size=pow(2, exponential)*0.01;
+		float LSB_Size=pow(2, exponential)*0.01;
 		int R = readres&0b0000111111111111;
 		return R*LSB_Size;
 	}

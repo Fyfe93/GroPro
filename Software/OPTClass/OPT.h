@@ -10,10 +10,10 @@
 class Opt3001
 {
 public:
-	Opt3001();
+	Opt3001(); //  Sensor setup, I2C setup
 	~Opt3001();
-	void Write(int addr);
-	float Read();
+	void Write(int addr); // Writes to sensor registers over I2C
+	float Read(); // Reads value provided by sensor from sensor data register
 
 private:
 
