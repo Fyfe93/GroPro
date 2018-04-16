@@ -20,7 +20,7 @@ real-time auto-adjustment protocol. The project is completed in association with
 
 You can follow the project's progress, interact with the developers and put forward your ideas for improvements through our social media pages linked above. Take a look through the Wiki for a detailed explanation on all elements of the project. All relevent files are in this Github repository.
 
-Please see our Hackaday page below and support our project:
+Please see our Hackaday page below and get behind our project:
 
 https://hackaday.io/project/142731-gropro
 
