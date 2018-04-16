@@ -20,6 +20,10 @@ real-time auto-adjustment protocol. The project is completed in association with
 
 You can follow the project's progress, interact with the developers and put forward your ideas for improvements through our social media pages linked above. Take a look through the Wiki for a detailed explanation on all elements of the project. All relevent files are in this Github repository.
 
+Please see our Hackaday page below and support our project:
+
+https://hackaday.io/project/142731-gropro
+
 Please see our Youtube video demonstration of the GroPro below: 
 
 <a href="https://www.youtube.com/watch?v=yk8lQQcMnJg
